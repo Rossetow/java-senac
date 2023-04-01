@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.Collections;
 
 public class ZywOo {
     public static int sumOfDifferences(int[] arr) {
