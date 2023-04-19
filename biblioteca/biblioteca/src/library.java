@@ -1,10 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.*;
 
 public class library extends JFrame {
 
+    private List books = new List();
     private searchPanel searchPanel = new searchPanel(this);
     private borrowPanel borrowPanel = new borrowPanel(this);
     private addPanel addPanel = new addPanel(this);
@@ -74,6 +77,14 @@ public class library extends JFrame {
         });
         add(panel);
     }
+
+    
+
+    public List getBooks() {
+        return books;
+    }
+
+
 
     public static void main(String[] args) {
         library ex = new library();

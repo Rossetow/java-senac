@@ -1,4 +1,7 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
 public class searchPanel extends JDialog{
@@ -12,12 +15,26 @@ public class searchPanel extends JDialog{
 
         JPanel panel = new JPanel(new GridLayout(3,2,300,100));
 
-        panel.add(new JLabel("Insert one of the information:"));
-        panel.add(new JButton("Search"));
-        panel.add(new JTextField("Title",50));
-        panel.add(new JTextField("Author",50));
-        panel.add(new JTextField("Book id",50));
-        
+        JLabel label = new JLabel("Insert one of the informations");
+        panel.add(label);
+
+        JTextField titleField = new JTextField("Title", 50);
+        panel.add(titleField);
+        JTextField idField = new JTextField("Book ID",5);
+        panel.add(idField);
+        JTextField authorField = new JTextField("Author", 50);
+        panel.add(authorField);
+        JButton searchButton = new JButton("Search");
+        panel.add(searchButton);
+
+        searchButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+            
+        });
         add(panel);
         pack();
     }
