@@ -4,11 +4,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class searchPanel extends JDialog{
+public class JFSearch extends JFrame{
     
-    public searchPanel(JFrame frame){
-        super(frame);
-        setTitle("Borrow book");
+    public JFSearch(JFrame frame){
+        super();
+        setTitle("Search book");
         setSize(1000,1000);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(false);
@@ -31,7 +31,10 @@ public class searchPanel extends JDialog{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                if(idField.getText() != null){
+                    JTResult table = new JTResult();
+                    table.setVisible(true);
+                }
             }
             
         });
