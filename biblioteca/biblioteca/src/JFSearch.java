@@ -5,9 +5,10 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class JFSearch extends JFrame{
-    
-    public JFSearch(JFrame frame){
+    JFrame parent;
+    public JFSearch(JFLibrary parent){
         super();
+        this.parent = parent;
         setTitle("Search book");
         setSize(1000,1000);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -31,15 +32,19 @@ public class JFSearch extends JFrame{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(idField.getText() != null){
-                    JTResult table = new JTResult();
+    
+                if(idField.getText()!=null){
+                    JTResult table = new JTResult(parent);
                     table.setVisible(true);
                 }
+
             }
             
         });
         add(panel);
         pack();
+
+       
     }
 
     public static void main(String[] args) {

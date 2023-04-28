@@ -11,9 +11,11 @@ public class JFLibrary extends JFrame {
     private JFAdd addFrame = new JFAdd(this);
     private JFRemove removeFrame = new JFRemove(this);
     private JFReturn returnFrame = new JFReturn(this);
+    public Library library;
 
-    public JFLibrary(){
+    public JFLibrary(Library library){
 
+        this.library = library;
         setTitle("Library");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1000,1000);
@@ -70,15 +72,23 @@ public class JFLibrary extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                returnFrame.setVisible(true);      
+                returnFrame.setVisible(true);     
             }
             
         });
         add(panel);
     }
 
+    public Library getLibrary(){
+        return this.library;
+    }
+
     public static void main(String[] args) {
-        JFLibrary ex = new JFLibrary();
+        Library library = new Library();
+        Author thairon = new Author("Thairon", null);
+        Book book = new Book(thairon, "História do pedro", 200);
+        library.addBook(book);
+        JFLibrary ex = new JFLibrary(library);
         ex.setVisible(true);
     }
 }
