@@ -86,6 +86,7 @@ public class JFLibrary extends JFrame {
     public static void main(String[] args) {
         Library library = new Library();
         Author thairon = new Author("Thairon", null);
+        library.authors.add(thairon);
         Book book = new Book(thairon, "História do pedro", 200);
         library.addBook(book);
         JFLibrary ex = new JFLibrary(library);

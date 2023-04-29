@@ -14,19 +14,27 @@ public class JFSearch extends JFrame{
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(false);
 
-        JPanel panel = new JPanel(new GridLayout(3,2,300,100));
+        JPanel panel = new JPanel(new GridLayout(5,2,50,50));
 
         JLabel label = new JLabel("Insert one of the informations");
         panel.add(label);
+        panel.add(new JLabel(""));
 
-        JTextField titleField = new JTextField("Title", 50);
+        JLabel titleLabel = new JLabel("Title");
+        panel.add(titleLabel);
+        JTextField titleField = new JTextField(null,50);
         panel.add(titleField);
-        JTextField idField = new JTextField("Book ID",5);
+        JLabel idLabel = new JLabel("Id");
+        panel.add(idLabel);
+        JTextField idField = new JTextField(null,50);
         panel.add(idField);
-        JTextField authorField = new JTextField("Author", 50);
+        JLabel authorLabel = new JLabel("Author");
+        panel.add(authorLabel);
+        JTextField authorField = new JTextField(null,50);
         panel.add(authorField);
         JButton searchButton = new JButton("Search");
         panel.add(searchButton);
+        //panel.add(new JLabel(""));
 
         searchButton.addActionListener(new ActionListener() {
 
@@ -34,7 +42,17 @@ public class JFSearch extends JFrame{
             public void actionPerformed(ActionEvent e) {
     
                 if(idField.getText()!=null){
-                    JTResult table = new JTResult(parent);
+                    JTResult table = new JTResult(parent, 1, Integer.valueOf(idField.getText()));
+                    table.setVisible(true);
+                }
+
+                else if(titleField.getText()!= null){
+                    JTResult table = new JTResult(parent, 2, titleField.getText());
+                    table.setVisible(true);
+                }
+
+                else if(authorField.getText()!= null){
+                    JTResult table = new JTResult(parent, 3, authorField.getText());
                     table.setVisible(true);
                 }
 
